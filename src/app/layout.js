@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,35 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ul className="flex gap-2 items-center bg-blue-200 text-black p-2">
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/"}>Home</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/dashboard"}>Dashboard</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/dashboard/profile"}>Profile</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/about"}>About</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/contact"}>Contact</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/login"}>Login</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/register"}>Sign in</Link>
+          </li>
+          <li className="p-2 hover:bg-pink-200 rounded-md cursor-pointer">
+            <Link href={"/settings"}>Settings</Link>
+          </li>
+        </ul>
+        {children}
+      </body>
     </html>
   );
 }
